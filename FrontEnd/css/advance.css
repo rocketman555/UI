@@ -1,0 +1,41 @@
+.height670 {
+    height: 670px;
+}
+
+table thead th {
+    white-space: nowrap;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.table-button > .col-6{
+    padding-right: 15px;
+    padding-left: 0px;
+}
+
+.card-readonly .form-control-plaintext {
+    text-align: right;
+}
+
+.table tbody tr th {
+    vertical-align: middle;
+}
+
+.btn.btn-primary.no-wrap {
+    white-space: nowrap;
+}
+
+.form-group.buy {
+    display: flex;
+}
+
+.form-group.buy button {
+    position: relative;
+    top: 8px;
+}
+
+.nav-header .brand-title {
+    margin-top: 15px;
+}

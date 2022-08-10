@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Zenix - Crypto Admin Dashboard </title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+	<link rel="stylesheet" href="./vendor/chartist/css/chartist.min.css">
+    <link href="./vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+	<link href="./vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/advance.css" rel="stylesheet">
+</head>
+<body>
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+         <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a href="index.html" class="brand-logo">
+                <svg class="logo-abbr" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<rect class="svg-logo-rect" width="50" height="50" rx="20" fill="#EB8153"/>
+					<path class="svg-logo-path"  d="M17.5158 25.8619L19.8088 25.2475L14.8746 11.1774C14.5189 9.84988 15.8701 9.0998 16.8205 9.75055L33.0924 22.2055C33.7045 22.5589 33.8512 24.0717 32.6444 24.3951L30.3514 25.0095L35.2856 39.0796C35.6973 40.1334 34.4431 41.2455 33.3397 40.5064L17.0678 28.0515C16.2057 27.2477 16.5504 26.1205 17.5158 25.8619ZM18.685 14.2955L22.2224 24.6007L29.4633 22.6605L18.685 14.2955ZM31.4751 35.9615L27.8171 25.6886L20.5762 27.6288L31.4751 35.9615Z" fill="white"/>
+				</svg>
+                <svg class="brand-title" width="253.701" height="101.4" viewBox="0 0 253.701 101.4" xmlns="http://www.w3.org/2000/svg">
+					<g id="svgGroup" stroke-linecap="round" fill-rule="evenodd" font-size="9pt" stroke="#ffffff" stroke-width="0.25mm" fill="#ffffff" style="stroke:#ffffff;stroke-width:0.25mm;fill:#ffffff">
+					<path d="M 131.5 57.6 L 131 46.9 Q 128.823 46.2 125.922 45.622 A 74.192 74.192 0 0 0 124.2 45.3 L 124.5 43.2 Q 126.9 43.4 128 43.4 Q 134.9 43.4 140.5 39.7 L 141.5 41.5 Q 140.3 42.6 139.3 43.8 Q 137.9 57.4 137.5 66.2 L 135.4 66.2 A 22.719 22.719 0 0 0 134.618 63.408 Q 133.95 61.525 133 60.1 Q 127.2 65.2 121.3 67.1 A 24.628 24.628 0 0 1 114.871 66.306 A 17.679 17.679 0 0 1 106.1 60.95 Q 100.805 55.03 100.608 45.125 A 38.808 38.808 0 0 1 100.6 44.35 A 32.967 32.967 0 0 1 105.938 26.436 A 40.713 40.713 0 0 1 107.1 24.7 A 32.338 32.338 0 0 1 115.022 16.703 A 29.18 29.18 0 0 1 123.7 12.6 Q 130.03 12.6 137.79 13.728 A 141.353 141.353 0 0 1 140.2 14.1 L 140.1 16.3 Q 138.2 16.3 136.5 17 A 30.309 30.309 0 0 0 134.964 21.758 Q 134.309 24.503 134 27.7 L 131.5 27.7 Q 130.7 24.3 130.7 20.7 A 17.446 17.446 0 0 0 125.982 19.164 A 24.012 24.012 0 0 0 121.7 18.8 Q 116.5 18.8 113.1 21.6 A 31.945 31.945 0 0 0 109.668 31.725 A 42.872 42.872 0 0 0 109.1 38.85 A 54.595 54.595 0 0 0 109.388 44.649 Q 109.7 47.561 110.35 49.981 A 21.917 21.917 0 0 0 112.05 54.45 A 9.986 9.986 0 0 0 119.003 59.678 A 17.599 17.599 0 0 0 123 60.1 A 15.613 15.613 0 0 0 129.328 58.723 A 19.859 19.859 0 0 0 131.5 57.6 Z M 40.4 48.9 L 40.5 48.2 Q 43 46.7 45.5 44 A 2.861 2.861 0 0 1 46.648 44.332 A 2.77 2.77 0 0 1 47.45 45 Q 48.2 45.9 48.2 47.1 Q 48.2 51.491 43.461 57.409 A 46.008 46.008 0 0 1 42.3 58.8 Q 36.692 65.264 31.806 67.21 A 13.6 13.6 0 0 1 31.3 67.4 Q 22.7 67.1 12.7 64.5 A 12.183 12.183 0 0 0 11.461 66.478 Q 10.976 67.435 10.579 68.568 A 21.267 21.267 0 0 0 10.4 69.1 L 8.3 68.5 Q 9.883 60.886 10.443 45.939 A 433.554 433.554 0 0 0 10.7 35.4 L 10.7 30.4 Q 10.7 12.9 9.6 4.6 A 61.541 61.541 0 0 1 2.288 3.156 A 54.05 54.05 0 0 1 0 2.5 L 0.4 0 Q 5.583 0.782 13.968 0.8 A 184.613 184.613 0 0 0 14.35 0.8 Q 23 0.8 30.4 0 L 30.7 2.4 Q 24.7 3.8 19.7 4.3 A 83.888 83.888 0 0 0 19.131 9.347 Q 18.634 15.152 18.475 23.646 A 460.794 460.794 0 0 0 18.4 32.25 Q 18.4 51.4 19.2 60.4 Q 22.6 60.6 25.6 60.6 Q 36.674 60.6 40.262 57.782 A 5.582 5.582 0 0 0 40.7 57.4 A 5.081 5.081 0 0 0 41.062 56.398 Q 41.325 55.378 41.383 53.891 A 22.663 22.663 0 0 0 41.4 53 Q 41.4 50.648 40.785 49.464 A 2.642 2.642 0 0 0 40.4 48.9 Z M 62.514 66.108 A 25.503 25.503 0 0 0 69.8 67.1 Q 80.2 63.3 86.05 54.6 Q 91.9 45.9 91.9 35.1 Q 91.9 29.995 90.694 25.996 A 19.044 19.044 0 0 0 86.5 18.45 A 16.4 16.4 0 0 0 83.947 16.202 Q 80.997 14.104 77.023 13.228 A 28.915 28.915 0 0 0 70.8 12.6 A 27.9 27.9 0 0 0 62.2 16.355 A 30.001 30.001 0 0 0 54.1 24.4 A 41.013 41.013 0 0 0 53.325 25.555 A 33.568 33.568 0 0 0 47.7 44.1 A 30.379 30.379 0 0 0 48.252 50.032 A 20.961 20.961 0 0 0 53.8 60.85 A 19.897 19.897 0 0 0 62.514 66.108 Z M 164.314 66.108 A 25.503 25.503 0 0 0 171.6 67.1 Q 182 63.3 187.85 54.6 Q 193.7 45.9 193.7 35.1 Q 193.7 29.995 192.494 25.996 A 19.044 19.044 0 0 0 188.3 18.45 A 16.4 16.4 0 0 0 185.747 16.202 Q 182.797 14.104 178.823 13.228 A 28.915 28.915 0 0 0 172.6 12.6 A 27.9 27.9 0 0 0 164 16.355 A 30.001 30.001 0 0 0 155.9 24.4 A 41.013 41.013 0 0 0 155.125 25.555 A 33.568 33.568 0 0 0 149.5 44.1 A 30.379 30.379 0 0 0 150.052 50.032 A 20.961 20.961 0 0 0 155.6 60.85 A 19.897 19.897 0 0 0 164.314 66.108 Z M 68.1 18.7 A 13.589 13.589 0 0 0 63.688 19.395 A 11.979 11.979 0 0 0 60.3 21.2 Q 56.616 27.489 56.242 36.684 A 52.055 52.055 0 0 0 56.2 38.8 A 35.023 35.023 0 0 0 56.932 46.193 Q 57.939 50.856 60.332 54.357 A 19.759 19.759 0 0 0 63 57.5 Q 66.6 61 71.5 61 Q 76.4 61 79.4 58.4 A 29.242 29.242 0 0 0 82.607 49.681 Q 83.35 46.04 83.397 41.86 A 50.358 50.358 0 0 0 83.4 41.3 A 46.553 46.553 0 0 0 82.975 34.811 Q 82.492 31.391 81.464 28.556 A 22.764 22.764 0 0 0 79.8 24.95 A 11.829 11.829 0 0 0 71.261 18.968 A 17.79 17.79 0 0 0 68.1 18.7 Z M 169.9 18.7 A 13.589 13.589 0 0 0 165.488 19.395 A 11.979 11.979 0 0 0 162.1 21.2 Q 158.416 27.489 158.042 36.684 A 52.055 52.055 0 0 0 158 38.8 A 35.023 35.023 0 0 0 158.732 46.193 Q 159.739 50.856 162.132 54.357 A 19.759 19.759 0 0 0 164.8 57.5 Q 168.4 61 173.3 61 Q 178.2 61 181.2 58.4 A 29.242 29.242 0 0 0 184.407 49.681 Q 185.15 46.04 185.197 41.86 A 50.358 50.358 0 0 0 185.2 41.3 A 46.553 46.553 0 0 0 184.775 34.811 Q 184.292 31.391 183.264 28.556 A 22.764 22.764 0 0 0 181.6 24.95 A 11.829 11.829 0 0 0 173.061 18.968 A 17.79 17.79 0 0 0 169.9 18.7 Z" vector-effect="non-scaling-stroke"/>
+				</svg>
+            </a>
+
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+		
+		<!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                        </div>
+                        <ul class="navbar-nav header-right main-notification">
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+							<i class="flaticon-144-layout"></i>
+							<span class="nav-text">Admin</span>
+						</a>
+                        <ul aria-expanded="false">
+							<li><a href="index-admin.html">Dashboard</a></li>
+							<li><a href="txs-admin.html">Transactions</a></li>
+                            <li><a href="lvl-admin.html">Levels</a></li>
+							<li><a href="wallets-admin.html">Wallets</a></li>
+							<li><a href="settings-admin.html">Settings</a></li>
+						</ul>
+
+                    </li>
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+						<i class="flaticon-077-menu-1"></i>
+							<span class="nav-text">Client</span>
+						</a>
+                        <ul aria-expanded="false">
+                            <li><a href="index.html">Dashboard</a></li>
+							<li><a href="txs.html">Transactions</a></li>
+                            <li><a href="lvl.html">Levels</a></li>
+							<li><a href="wallets.html">Wallets</a></li>
+							<li><a href="settings.html">Settings</a></li>
+                        </ul>
+                    </li>
+                </ul>
+				<div class="copyright">
+					<p><strong>Zenix Crypto Admin Dashboard</strong> © 2021 All Rights Reserved</p>
+					<p class="fs-12">Made with <span class="heart"></span> by DexignZone</p>
+				</div>
+			</div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+		
+		<!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+			<div class="container-fluid">
+				<div class="form-head mb-sm-5 mb-3 d-flex flex-wrap align-items-center">
+					<h2 class="font-w600 mb-2 mr-auto ">Settings</h2>
+				</div>
+				<div class="row">
+					<div class="col-xl-12 col-lg-12">
+                        <div class="card card-readonly">
+                            <div class="card-body">
+                                <div class="basic-form">
+                                    <form>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Current Admin Address</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" readonly="" class="form-control-plaintext" value="0x0000000000000000000000000000000000000000">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Current Domain</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" readonly="" class="form-control-plaintext" value="www.site.com">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Contract Address</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" readonly="" class="form-control-plaintext" value="0x0000000000000000000000000000000000000000">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Server Status</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" readonly="" class="form-control-plaintext" value="OK! (200ms)">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+							</div>
+						</div>
+					</div>
+				</div>
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Edit</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="basic-form">
+                                    <form>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <label>Contract Address</label>
+                                                <input type="text" class="form-control" placeholder="0x0000000000000000000000000000000000000000">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>TG Channel Link RU</label>
+                                                <input type="text" class="form-control" placeholder="http://t.me/0x">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>TG Channel Link EN</label>
+                                                <input type="text" class="form-control" placeholder="http://t.me/0x">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>TG Chat Link RU</label>
+                                                <input type="text" class="form-control" placeholder="http://t.me/0x">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>TG Chat Link EN</label>
+                                                <input type="text" class="form-control" placeholder="http://t.me/0x">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>TW Link RU</label>
+                                                <input type="text" class="form-control" placeholder="http://twitter.com/0x">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>TW Link EN</label>
+                                                <input type="text" class="form-control" placeholder="http://twitter.com/0x">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>DS Link RU</label>
+                                                <input type="text" class="form-control" placeholder="https://discord.com/invite/0x">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>DS Link EN</label>
+                                                <input type="text" class="form-control" placeholder="https://discord.com/invite/0x">
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+                </div>
+			</div>
+		</div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Designed &amp; Developed by <a href="http://dexignzone.com/" target="_blank">DexignZone</a> 2021</p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="./vendor/global/global.min.js"></script>
+	<script src="./vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<script src="./vendor/chart.js/Chart.bundle.min.js"></script>
+	
+	<!-- Chart piety plugin files -->
+    <script src="./vendor/peity/jquery.peity.min.js"></script>
+	
+	<!-- Apex Chart -->
+	<script src="./vendor/apexchart/apexchart.js"></script>
+	
+	<!-- Dashboard 1 -->
+	<script src="./js/dashboard/dashboard-1.js"></script>
+	
+	<script src="./vendor/owl-carousel/owl.carousel.js"></script>
+    <script src="./js/custom.min.js"></script>
+	<script src="./js/deznav-init.js"></script>
+</body>
+</html>
